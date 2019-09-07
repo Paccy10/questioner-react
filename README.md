@@ -1,1 +1,2 @@
-# questioner-react
+# Questioner web
+[![Build Status](https://travis-ci.org/Paccy10/questioner-react.svg?branch=develop)](https://travis-ci.org/Paccy10/questioner-react) [![Maintainability](https://api.codeclimate.com/v1/badges/7f7838a461be2c90fe93/maintainability)](https://codeclimate.com/github/Paccy10/questioner-react/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/7f7838a461be2c90fe93/test_coverage)](https://codeclimate.com/github/Paccy10/questioner-react/test_coverage)
