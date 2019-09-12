@@ -8,7 +8,7 @@ import logo1 from '../../assets/img/logo1.png';
 class Signup extends Component {
     state = {
         email: '',
-        password: '',
+        password: ''
     };
 
     onChange = e => {

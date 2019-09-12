@@ -10,7 +10,7 @@ const Input = ({
     value,
     onChange,
     label,
-    required,
+    required
 }) => (
     <Fragment>
         <label htmlFor={name} className="input-label">
@@ -38,7 +38,7 @@ Input.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string,
-    required: PropTypes.bool.isRequired,
+    required: PropTypes.bool.isRequired
 };
 
 export default Input;

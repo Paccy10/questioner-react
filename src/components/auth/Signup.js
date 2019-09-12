@@ -12,7 +12,7 @@ class Signup extends Component {
         othername: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirmPassword: ''
     };
 
     onChange = e => {
