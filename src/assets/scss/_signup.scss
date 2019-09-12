@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap');
+
+.signup-left {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: color(primary);
+
+    h1 {
+        color: color(light);
+        font-family: 'Caveat Brush', cursive;
+        font-size: 100px;
+
+        @include tablet {
+            font-size: 70px;
+        }
+    }
+    @include tablet {
+        width: 40%;
+        height: 100vh;
+    }
+
+    @include phone {
+        display: none;
+    }
+
+    @include phone_landscape {
+        display: none;
+    }
+}
+
+.signup-right {
+    width: 40%;
+    float: right;
+    padding: 10px;
+    padding-right: 45px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+
+    @include tablet {
+        width: 45%;
+    }
+
+    @include phone {
+        width: 80%;
+        float: none;
+        display: block;
+        padding: 20px 0;
+        margin: 0 auto;
+        height: 100%;
+    }
+
+    @include phone_landscape {
+        width: 80%;
+        float: none;
+        display: block;
+        padding: 20px 0;
+        margin: 0 auto;
+        height: 100%;
+    }
+
+    img {
+        display: none;
+
+        @include phone {
+            display: block;
+            margin: 0 auto;
+        }
+
+        @include phone_landscape {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: color(primary);
+        margin-bottom: 30px;
+        font-weight: bolder;
+    }
+
+    .login-link {
+        margin-top: 10px;
+        a {
+            text-decoration: none;
+            color: color(primary);
+            font-weight: bolder;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}

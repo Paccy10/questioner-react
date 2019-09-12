@@ -1,0 +1,17 @@
+@mixin tablet {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin phone_landscape {
+    @media screen and (max-width: 823px) and (min-width: 812px) {
+        @content;
+    }
+}

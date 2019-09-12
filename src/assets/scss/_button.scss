@@ -1,0 +1,17 @@
+.btn {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    font-family: font91249;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background-color: color(primary);
+    color: color(light);
+}

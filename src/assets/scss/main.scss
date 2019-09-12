@@ -1,0 +1,32 @@
+@import url('https://www.fontify.me/wf/49afef78b178ea7985c30f03d48e3e2c');
+
+@import 'variables';
+@import 'mixins';
+@import 'input';
+@import 'button';
+@import 'signup';
+@import 'login';
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: font91249;
+}
+
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #b6b6b6;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #b6b6b6;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #b6b6b6;
+}
