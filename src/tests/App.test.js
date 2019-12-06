@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 import App from '../App';
 
 describe('Main Component', () => {
-    it('renders without crashing', () => {
+    it('should render without crashing', () => {
+        localStorage.setItem('token', 'token');
         const component = shallow(<App />);
         expect(component).toMatchSnapshot();
     });

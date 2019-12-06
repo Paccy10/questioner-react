@@ -5,6 +5,7 @@ $colors: (
     danger: #dc3545,
     accent: #ced4da,
     light: #fff,
+    success: #28a745
 );
 
 @function color($color-name) {

@@ -1,40 +1,83 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Input from '../common/Input';
-import Button from '../common/Button';
 import logo from '../../assets/img/logo.png';
 import logo1 from '../../assets/img/logo1.png';
+import { setAlert } from '../../actions/alert';
+import { signup } from '../../actions/auth';
+import Alert from '../modals/Alert';
+import ButtonSpinner from '../common/ButtonSpinner';
 
-class Signup extends Component {
+export class Signup extends Component {
     state = {
         firstname: '',
         lastname: '',
         othername: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        loading: false
     };
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/home');
+        }
+    }
 
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
 
-    onSubmit = e => {
+    onSubmit = async e => {
         e.preventDefault();
+        this.setState({ loading: true });
+        const {
+            firstname,
+            lastname,
+            othername,
+            email,
+            password,
+            confirmPassword
+        } = this.state;
+        const { setAlert, signup } = this.props;
+        if (password !== confirmPassword) {
+            setAlert('Passwords do not match', 'danger');
+            this.setState({ loading: false });
+        } else {
+            await signup({
+                firstname,
+                lastname,
+                othername,
+                email,
+                password,
+                confirmPassword
+            });
+            this.setState({ loading: false });
+        }
     };
 
     render() {
+        const { loading } = this.state;
         return (
             <Fragment>
+                <Alert />
                 <div className="signup-left">
                     <img src={logo} alt="Questioner Logo" width="100" />
                     <h1>Questioner</h1>
                 </div>
                 <div className="signup-right">
-                    <img src={logo1} alt="Questioner Logo" width="50" />
+                    <img
+                        className="logo"
+                        src={logo1}
+                        alt="Questioner Logo"
+                        width="50"
+                    />
                     <h1>Signup</h1>
                     <div className="signup-form">
-                        <form action="">
+                        <form onSubmit={this.onSubmit}>
                             <Input
                                 type="text"
                                 name="firstname"
@@ -100,12 +143,9 @@ class Signup extends Component {
                                 required={true}
                             />
 
-                            <Button
-                                type="submit"
-                                value="Register"
-                                onClick={this.onSubmit}
-                                className="btn btn-primary"
-                            />
+                            <button className="btn btn-primary">
+                                Register {loading ? <ButtonSpinner /> : ''}
+                            </button>
                         </form>
                         <div className="login-link">
                             Already have an account? <Link to="/">Login</Link>
@@ -117,4 +157,18 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+Signup.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    signup: PropTypes.func.isRequired,
+    auth: PropTypes.object,
+    history: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(
+    mapStateToProps,
+    { setAlert, signup }
+)(Signup);

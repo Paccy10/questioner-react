@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ value, className, id, onClick }) => (
+const Button = ({ type, value, className, id, onClick }) => (
     <input
-        type="submit"
+        type={type}
         id={id}
         value={value}
         onClick={onClick}
@@ -14,8 +14,9 @@ const Button = ({ value, className, id, onClick }) => (
 Button.propTypes = {
     id: PropTypes.string,
     value: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    className: PropTypes.string.isRequired
+    onClick: PropTypes.func,
+    className: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 };
 
 export default Button;
